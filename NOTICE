@@ -28,7 +28,7 @@ Modified:
   docs-for-dev/README.md
       links the new handbook page.
   .gitattributes
-      pins NOTICE to LF, like every other text file in this repository.
+      pins NOTICE and itself to LF, like every other text file here.
   README.md, deeptutor_cli/README.md
       documentation rows for `deeptutor learning calibration`.
 
