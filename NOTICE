@@ -1,0 +1,45 @@
+RetentionProof — a retention-calibration audit layer for DeepTutor
+Copyright 2026 llinok111
+
+Upstream: HKUDS/DeepTutor (https://github.com/HKUDS/DeepTutor), Apache License 2.0.
+Base commit: 1ea7df155447f4caf0e3abc86b3ff5395479cd4a
+The full upstream history is preserved in this repository; `LICENSE` is the
+upstream Apache-2.0 text, unmodified.
+
+Changes made (Apache-2.0 §4(b) notice of modification). Files not listed here
+are byte-for-byte upstream at the base commit:
+
+New:
+  deeptutor/learning/calibration.py
+  deeptutor/learning/tests/_simulate.py
+  deeptutor/learning/tests/test_calibration.py
+  deeptutor_cli/learning.py
+  tests/cli/test_learning_cli.py
+  tools/calib-bench/simulate.py
+  tools/calib-bench/last-run.json
+  docs-for-dev/CALIBRATION.md
+  NOTICE
+
+Modified:
+  deeptutor_cli/main.py
+      imports and registers the `learning` command group (three lines).
+  tests/cli/test_docs_contract.py
+      adds "learning" to the allowlist of documented top-level commands (one line).
+  docs-for-dev/README.md
+      links the new handbook page.
+  README.md, deeptutor_cli/README.md
+      documentation rows for `deeptutor learning calibration`.
+
+Deliberately not modified — the audit reads these, it never reimplements them:
+  deeptutor/learning/scheduler.py
+  deeptutor/learning/mastery.py
+  deeptutor/learning/policy.py
+  deeptutor/learning/service.py
+  deeptutor/learning/models.py
+  deeptutor/learning/storage.py
+
+The audit calls the scheduler's own `retrievability()` / `schedule_review()`,
+so an upstream model change flows into the measurements instead of drifting
+away from them. `docs-for-dev/CALIBRATION.md` documents the method, the
+thresholds and the measured results; `tools/calib-bench/simulate.py` reproduces
+every number in it.

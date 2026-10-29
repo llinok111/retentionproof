@@ -1027,6 +1027,7 @@ The table covers the full installation and optional add-ons; commands and capabi
 | `deeptutor session list/show/open/rename/delete` | Manage shared sessions |
 | `deeptutor notebook list/create/show/add-md/replace-md/remove-record` | Manage notebooks from Markdown files |
 | `deeptutor book list/health/refresh-fingerprints` | Inspect books and refresh source fingerprints |
+| `deeptutor learning calibration SNAPSHOT [--json] [-o FILE]` | Compare the spaced-repetition scheduler's recall predictions with the answers a learner actually gave; exit code 1 when a P0/P1 finding is present (see [calibration](docs-for-dev/CALIBRATION.md)) |
 | `deeptutor plugin list/info/state/search/show/install/approve/enable/disable/rollback/uninstall` | Inspect tools and capabilities; manage reviewed plugin packages and their permission approvals |
 | `deeptutor config show [--home PATH]` | Show resolved runtime configuration with credentials redacted |
 | `deeptutor config providers` | List supported setup providers and defaults as JSON |

@@ -17,6 +17,7 @@ from .common import build_turn_request, console, maybe_run
 from .config_cmd import register as register_config
 from .doctor import register as register_doctor
 from .init_cmd import register as register_init
+from .learning import register as register_learning
 from .module import register as register_module
 from .plugin import register as register_plugin
 from .provider_cmd import register as register_provider
@@ -72,6 +73,9 @@ register_init(app)
 module_app = typer.Typer(help="Install, remove and inspect optional modules.")
 app.add_typer(module_app, name="module")
 register_module(module_app)
+learning_app = typer.Typer(help="Inspect a learner's mastery state.")
+app.add_typer(learning_app, name="learning")
+register_learning(learning_app)
 
 
 @app.command("run")

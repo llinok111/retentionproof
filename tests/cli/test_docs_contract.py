@@ -113,6 +113,7 @@ def test_documented_deeptutor_subcommands_exist() -> None:
         "init",
         "kb",
         "memory",
+        "learning",
         "module",
         "notebook",
         "partner",

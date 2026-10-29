@@ -231,6 +231,20 @@ deeptutor memory show
 deeptutor memory clear --force
 ```
 
+### `learning` — 保持率校准
+
+把精通之路的复习调度和学员的真实作答对账：调度器认为"现在还能记住多少"，
+和真正答对的比例是否一致。不需要模型、不需要网络、不起服务。
+
+```bash
+deeptutor learning calibration progress.json          # 导出的 LearningProgress 快照
+deeptutor learning calibration --store-root ~/.deeptutor/workspace/learning --path <path_id>
+deeptutor learning calibration progress.json --json -o report.json
+```
+
+退出码 `0` 无 P0/P1 发现、`1` 有 P0/P1、`2` 用法或读取错误。
+判据与实测见 [保持率校准](../docs-for-dev/CALIBRATION.md)。
+
 ### `plugin` — 插件信息
 
 ```bash

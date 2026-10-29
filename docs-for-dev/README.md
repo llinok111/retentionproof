@@ -56,6 +56,8 @@ installation before deciding to reinstall it.
 - [Scientific research](SCIENTIFIC_RESEARCH.md): paper tools, evidence and MCP
   authorization.
 - [Practice](PRACTICE.md): question imports, review records and scheduling.
+- [Retention calibration](CALIBRATION.md): whether the scheduler's recall
+  predictions match what learners actually retrieved, and the target that fits.
 - [Video learning](watching-workspace.md) and [voice](VOICE_CONFIGURATION.md):
   Reading media migration, captions, speech adapters and verification.
 - [Answer-quality diagnosis](REASONING_SAFETY_CHECKLIST.md): reproducible
