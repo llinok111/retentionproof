@@ -390,9 +390,13 @@ def compute_metrics(predictions: Sequence[Prediction]) -> Metrics:
     )
     ece = weighted / events
     # A single two-event bin must not set the worst-case number: MCE only reads
-    # bins holding at least 5% of the events (and at least five of them).
+    # bins holding at least 5% of the events (and at least five of them). If the
+    # whole sample is smaller than that floor, the fullest bin speaks instead —
+    # "no bin qualifies" must not become a crash or a zero.
     floor = max(5, int(0.05 * events))
     populated = [item for item in reliability if item.count >= floor]
+    if not populated:
+        populated = sorted(reliability, key=lambda item: (-item.count, item.lower))[:1]
     mce = max(abs(item.observed_rate - item.mean_predicted) for item in populated)
     return Metrics(
         events=events,

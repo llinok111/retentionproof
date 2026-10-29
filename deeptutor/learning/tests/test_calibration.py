@@ -123,6 +123,18 @@ class TestMetrics:
         with pytest.raises(ValueError):
             compute_metrics([])
 
+    def test_mce_ignores_a_single_event_bin(self):
+        predictions = [_prediction(0.9, index < 90) for index in range(100)]
+        predictions.append(_prediction(0.25, False))  # one event, 0.25 off
+        metrics = compute_metrics(predictions)
+        assert metrics.ece < 0.05
+        assert metrics.mce < 0.2
+
+    def test_mce_survives_samples_below_the_bin_floor(self):
+        metrics = compute_metrics([_prediction(0.05, False), _prediction(0.95, True)])
+        assert math.isfinite(metrics.mce)
+        assert metrics.mce == pytest.approx(0.05)
+
 
 class TestWilsonInterval:
     def test_extremes_stay_inside_the_unit_interval(self):
