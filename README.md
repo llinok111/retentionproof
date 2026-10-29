@@ -39,6 +39,16 @@
 
 [Features](#-key-features) · [Get Started](#-get-started) · [Explore](#-explore-deeptutor) · [CLI](#%EF%B8%8F-deeptutor-cli--agent-native-interface) · [Ecosystem](#-ecosystem--eduhub--the-skills-community) · [Community](#-community)
 
+> **This fork adds a retention calibration audit.** `deeptutor learning calibration`
+> replays a learner's durable evidence log through the scheduler's own transitions and
+> reports whether the recall it predicted is the recall the learner showed: reliability
+> bins, ECE, Brier against the base rate, AUC, the true/model stability ratio with a
+> cluster-bootstrap interval, and the `desired_retention` that would actually deliver
+> what the current target promises. No model, no network, no server. Everything upstream
+> still works and the scheduler itself is byte-for-byte unchanged —
+> see [docs-for-dev/CALIBRATION.md](docs-for-dev/CALIBRATION.md) and the reproducible
+> benchmark in `tools/calib-bench/`.
+
 </div>
 
 ---
