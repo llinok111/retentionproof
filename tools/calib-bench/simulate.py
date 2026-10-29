@@ -190,7 +190,13 @@ def main() -> int:
             "elapsed_s": round(time.time() - started, 1),
         },
     }
-    ARTIFACT.write_text(json.dumps(artifact, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    # ``newline="\n"`` because the repository stores this artifact with LF and a
+    # Windows checkout would otherwise leave the worktree and the index disagreeing.
+    ARTIFACT.write_text(
+        json.dumps(artifact, indent=1, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
 
     if args.json:
         print(json.dumps(artifact, indent=1, ensure_ascii=False))

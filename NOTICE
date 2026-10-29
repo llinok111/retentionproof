@@ -27,6 +27,8 @@ Modified:
       adds "learning" to the allowlist of documented top-level commands (one line).
   docs-for-dev/README.md
       links the new handbook page.
+  .gitattributes
+      pins NOTICE to LF, like every other text file in this repository.
   README.md, deeptutor_cli/README.md
       documentation rows for `deeptutor learning calibration`.
 
