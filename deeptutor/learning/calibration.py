@@ -31,7 +31,8 @@ No LLM, no network, no I/O: the audit is a pure function of a
 deterministic, including the bootstrap (fixed seed), so the same snapshot always
 renders the same report.
 
-The prediction itself is never reimplemented here.  ``retrievability`` and
+The prediction itself is never reimplemented here: if upstream changes the
+forgetting model, the audit measures the new one the next time it runs.  ``retrievability`` and
 ``schedule_review`` are called on the scheduler instance you pass in, so an
 upstream model change flows into the audit instead of drifting away from it.
 """
